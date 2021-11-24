@@ -1,9 +1,9 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "Censorium",
   "version": "1.0.0",
   "description": "Censor profanity on the web",
-  "action": {
+  "browser_action": {
     "default_icon": "assets/icon.png",
     "default_popup": "popup.html"
   },
@@ -11,5 +11,9 @@
     "16": "assets/icon16.png",
     "48": "assets/icon48.png",
     "128": "assets/icon128.png"
-  }
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"]
+  }]
 }
