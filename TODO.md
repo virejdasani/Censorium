@@ -1,0 +1,3 @@
+- Make it so that as soon as a new webpage is loaded, the extension censors profanity
+- Add dropdown to customize the censor from the asterisk to emoji, etc.
+- Make the asterisk a button instead of text that when clicked, reveals the actual word
