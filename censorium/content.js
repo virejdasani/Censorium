@@ -475,6 +475,7 @@ chrome.runtime.onMessage.addListener((msgObj) => {
 var profaneHTML = document.body.innerHTML;
 
 const regex = new RegExp("\\b" + profaneWords.join("\\b|\\b") + "\\b", "gi");
-var cleanHTML = document.body.innerHTML.replace(regex, "***");
+var cleanHTML = document.body.innerHTML.replace(regex, "😈");
+// var cleanHTML = document.body.innerHTML.replace(regex, "***");
 
 document.body.innerHTML = cleanHTML;
