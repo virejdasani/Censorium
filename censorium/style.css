@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@350;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
+@font-face {
+  font-family: Courgette;
+  src: url(./assets/fonts/Courgette/Courgette-Regular.ttf);
+}
 
 :root {
   --body-font-size: 18px;
@@ -30,6 +36,29 @@ body {
   /* background-image: url("./assets/whiteGlossBackground.png"); */
   background-color: #131417;
   color: #fe5c5d;
+}
+
+#title {
+  font-family: 'Bungee Shade', cursive;
+}
+
+#censorButton {
+  color: #131417;
+  background-color: rgb(239, 239, 239);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#censorButton:hover {
+  background-color: rgb(205, 205, 205);
+  transition: 300ms;
+}
+
+#censorButton:active {
+  background-color: rgb(185, 185, 185);
+  transition: 100ms;
 }
 
 .main {
