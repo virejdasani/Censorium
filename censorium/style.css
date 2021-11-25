@@ -29,13 +29,33 @@ body {
   margin: auto;
   /* background-image: url("./assets/whiteGlossBackground.png"); */
   background-color: #131417;
-  color: #fe5c5d;
+  color: white;
 }
 
 #title {}
 
+.green {
+  color: aquamarine;
+}
+
+.bold {
+  font-weight: normal;
+}
+
 #imgTitle {
-  padding: 30px;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 8px;
+}
+
+#titleImg {
+  width: 80%;
+}
+
+#status {
+  font-weight: lighter;
+  padding-bottom: 10px;
 }
 
 #censorButton {

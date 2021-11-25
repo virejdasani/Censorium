@@ -1,24 +1,3 @@
-// Here the message is received from popup.js
-chrome.runtime.onMessage.addListener((msgObj) => {
-  if (msgObj === "Clicked") {
-    console.log("clicked");
-    // for (let i = 0; i < profaneWords.length; i++) {
-    //   let element = profaneWords[i];
-    //   document.body.innerHTML = document.body.innerHTML.replaceAll(
-    //     element,
-    //     "***"
-    //   );
-    //   console.log(object);
-    // }
-
-    const regex = new RegExp(
-      "\\b" + profaneWords.join("\\b|\\b") + "\\b",
-      "gi"
-    );
-    document.body.innerHTML = document.body.innerHTML.replace(regex, "***");
-  }
-});
-
 const profaneWords = [
   "4r5e",
   "5h1t",
@@ -471,3 +450,31 @@ const profaneWords = [
   "xrated",
   "xxx",
 ];
+
+// Here the message is received from popup.js
+chrome.runtime.onMessage.addListener((msgObj) => {
+  if (msgObj === "Clicked") {
+    console.log("clicked");
+    // for (let i = 0; i < profaneWords.length; i++) {
+    //   let element = profaneWords[i];
+    //   document.body.innerHTML = document.body.innerHTML.replaceAll(
+    //     element,
+    //     "***"
+    //   );
+    //   console.log(object);
+    // }
+
+    // const regex = new RegExp(
+    //   "\\b" + profaneWords.join("\\b|\\b") + "\\b",
+    //   "gi"
+    // );
+    // document.body.innerHTML = document.body.innerHTML.replace(regex, "***");
+  }
+});
+
+var profaneHTML = document.body.innerHTML;
+
+const regex = new RegExp("\\b" + profaneWords.join("\\b|\\b") + "\\b", "gi");
+var cleanHTML = document.body.innerHTML.replace(regex, "***");
+
+document.body.innerHTML = cleanHTML;
