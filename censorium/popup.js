@@ -1,10 +1,28 @@
-// To find and replace:
-// document.body.innerHTML = document.body.innerHTML.replace(/Original/g, "New")
-
 var msgObj = "Clicked";
 
-// This is executed when the hack button is clicked
-document.getElementById("censorButton").addEventListener("click", function () {
+var censored;
+
+const censorButton = document.getElementById("censorButton");
+const censorStatus = document.getElementById("status");
+
+// This is executed when button is clicked
+censorButton.addEventListener("click", function () {
+  if (censored) {
+    censorButton.innerText = "Uncensor Profanity";
+    censorStatus.innerHTML = `
+      <span class="bold">Profanity </span> on this page has been <span class="bold">censored</span> <span
+      class="green bold">✓</span>
+    `;
+    censored = false;
+  } else {
+    censorButton.innerText = "Censor Profanity";
+    censorStatus.innerHTML = `
+    <span class="bold">Profanity </span> on this page is <span class="bold">not censored</span> <span
+    class="red bold">✕</span>
+  `;
+    censored = true;
+  }
+
   // This sends a message to content.js from where it receives it
   chrome.tabs.query({}, (tabs) => {
     tabs.forEach((tab) => {
@@ -12,5 +30,3 @@ document.getElementById("censorButton").addEventListener("click", function () {
     });
   });
 });
-
-const test = "tst";

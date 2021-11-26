@@ -38,6 +38,10 @@ body {
   color: aquamarine;
 }
 
+.red {
+  color: crimson;
+}
+
 .bold {
   font-weight: normal;
 }
@@ -156,33 +160,6 @@ p {
   background-size: 0 3px, 100% 3px;
 }
 
-/* This it the input field when it does not have focus */
-textarea[type=text] {
-  outline: none;
-  box-shadow: none;
-  border: solid 1px rgb(91, 91, 91);
-}
-
-/* This is for the highlighted color when the input field is in focus */
-textarea[type=text]:focus {
-  outline: none;
-  box-shadow: none;
-  border: solid 1px rgb(125, 125, 125);
-}
-
-/* This it the input field when it does not have focus */
-select {
-  outline: none;
-  box-shadow: none;
-  border: solid 1px rgb(91, 91, 91);
-}
-
-/* This is for the highlighted color when the input field is in focus */
-select:focus {
-  outline: none;
-  box-shadow: none;
-  border: solid 1px rgb(125, 125, 125);
-}
 
 ::-webkit-scrollbar {
   background-color: rgba(255, 255, 255, 0.4);

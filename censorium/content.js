@@ -479,3 +479,5 @@ var cleanHTML = document.body.innerHTML.replace(regex, "😈");
 // var cleanHTML = document.body.innerHTML.replace(regex, "***");
 
 document.body.innerHTML = cleanHTML;
+
+
