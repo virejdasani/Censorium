@@ -447,37 +447,18 @@ const profaneWords = [
   "whore",
   "willies",
   "willy",
-  "xrated",
-  "xxx",
 ];
-
-// Here the message is received from popup.js
-chrome.runtime.onMessage.addListener((msgObj) => {
-  if (msgObj === "Clicked") {
-    console.log("clicked");
-    // for (let i = 0; i < profaneWords.length; i++) {
-    //   let element = profaneWords[i];
-    //   document.body.innerHTML = document.body.innerHTML.replaceAll(
-    //     element,
-    //     "***"
-    //   );
-    //   console.log(object);
-    // }
-
-    // const regex = new RegExp(
-    //   "\\b" + profaneWords.join("\\b|\\b") + "\\b",
-    //   "gi"
-    // );
-    // document.body.innerHTML = document.body.innerHTML.replace(regex, "***");
-  }
-});
 
 var profaneHTML = document.body.innerHTML;
 
 const regex = new RegExp("\\b" + profaneWords.join("\\b|\\b") + "\\b", "gi");
-var cleanHTML = document.body.innerHTML.replace(regex, "😈");
-// var cleanHTML = document.body.innerHTML.replace(regex, "***");
+var cleanHTML = document.body.innerHTML.replace(regex, "🤬");
 
-document.body.innerHTML = cleanHTML;
-
-
+// Here the message is received from popup.js
+chrome.runtime.onMessage.addListener((msgObj) => {
+  if (msgObj === "censor") {
+    document.body.innerHTML = cleanHTML;
+  } else if (msgObj == "uncensor") {
+    document.body.innerHTML = profaneHTML;
+  }
+});

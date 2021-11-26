@@ -1,6 +1,7 @@
-var msgObj = "Clicked";
+var censorMessage = "censor";
+var uncensorMessage = "uncensor";
 
-var censored;
+var censored = false;
 
 const censorButton = document.getElementById("censorButton");
 const censorStatus = document.getElementById("status");
@@ -8,25 +9,30 @@ const censorStatus = document.getElementById("status");
 // This is executed when button is clicked
 censorButton.addEventListener("click", function () {
   if (censored) {
-    censorButton.innerText = "Uncensor Profanity";
-    censorStatus.innerHTML = `
-      <span class="bold">Profanity </span> on this page has been <span class="bold">censored</span> <span
-      class="green bold">✓</span>
-    `;
     censored = false;
-  } else {
     censorButton.innerText = "Censor Profanity";
     censorStatus.innerHTML = `
-    <span class="bold">Profanity </span> on this page is <span class="bold">not censored</span> <span
+    This page <span class="bold">may contain profane language </span><span
     class="red bold">✕</span>
   `;
-    censored = true;
-  }
-
-  // This sends a message to content.js from where it receives it
-  chrome.tabs.query({}, (tabs) => {
-    tabs.forEach((tab) => {
-      chrome.tabs.sendMessage(tab.id, msgObj);
+    // This sends a message to content.js
+    chrome.tabs.query({}, (tabs) => {
+      tabs.forEach((tab) => {
+        chrome.tabs.sendMessage(tab.id, uncensorMessage);
+      });
     });
-  });
+  } else {
+    censored = true;
+    censorButton.innerText = "Uncensor Profanity";
+    censorStatus.innerHTML = `
+    <span class="bold">Profanity </span> on this page has been <span class="bold">censored</span> <span
+    class="green bold">✓</span>
+  `;
+    // This sends a message to content.js
+    chrome.tabs.query({}, (tabs) => {
+      tabs.forEach((tab) => {
+        chrome.tabs.sendMessage(tab.id, censorMessage);
+      });
+    });
+  }
 });
